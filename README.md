@@ -33,3 +33,85 @@ customers.info()
 sns.jointplot('Time on Website', 'Yearly Amount Spent', data=customers)
 ```
 ![image](https://raw.githubusercontent.com/yash-kh/Linear-Regression-Project/master/Plots/TOM-YAS.png)
+```python
+sns.jointplot('Time on App', 'Yearly Amount Spent', data=customers)
+```
+![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+```python
+sns.jointplot('Time on App', 'Length of Membership', data=customers, kind='hex')
+```
+![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+```python
+sns.pairplot(customers)
+```
+![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+ **Based off this plot Length of Membership looks to be the most correlated feature with Yearly Amount Spent**
+ ```python
+ sns.lmplot(x='Length of Membership',y='Yearly Amount Spent',data=customers)
+ ```
+ ![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+ # Training and Testing Data
+
+Now that we've explored the data a bit, let's go ahead and split the data into training and testing sets.
+```python
+y = customers['Yearly Amount Spent']
+X = customers[['Avg. Session Length', 'Time on App','Time on Website', 'Length of Membership']]
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
+```
+# Training the Model
+
+Now its time to train our model on our training data!
+```python
+from sklearn.linear_model import LinearRegression
+lm = LinearRegression()
+lm.fit(X_train,y_train)
+```
+# The coefficients
+```python
+print('Coefficients: \n', lm.coef_)
+```
+![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+# Predicting Test Data
+Now that we have fit our model, let's evaluate its performance by predicting off the test values!
+```python
+predictions = lm.predict( X_test)
+plt.scatter(y_test,predictions)
+plt.xlabel('Y Test')
+plt.ylabel('Predicted Y')
+```
+![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+ **With the plot we can see we made a great linear model because it can fit on a linear line pretty good**
+ # Evaluating the Model
+
+Let's evaluate our model performance by calculating the residual sum of squares and the explained variance score (R^2).
+```python
+from sklearn import metrics
+
+print('MAE:', metrics.mean_absolute_error(y_test, predictions))
+print('MSE:', metrics.mean_squared_error(y_test, predictions))
+print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
+```
+![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+# Residuals
+
+You should have gotten a very good model with a good fit. Let's quickly explore the residuals to make sure everything was okay with our data. 
+```python
+sns.distplot((y_test-predictions),bins=50);
+```
+![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+# Conclusion
+We still want to figure out the answer to the original question, do we focus our efforst on mobile app or website development? Or maybe that doesn't even really matter, and Membership Time is what is really important.  Let's see if we can interpret the coefficients at all to get an idea.
+```python
+coeffecients = pd.DataFrame(lm.coef_,X.columns)
+coeffecients.columns = ['Coeffecient']
+coeffecients
+```
+![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+# Interpreting the coefficients:
+
+- Holding all other features fixed, a 1 unit increase in **Avg. Session Length** is associated with an **increase of 25.98 total dollars spent**.
+- Holding all other features fixed, a 1 unit increase in **Time on App** is associated with an **increase of 38.59 total dollars spent**.
+- Holding all other features fixed, a 1 unit increase in **Time on Website** is associated with an **increase of 0.19 total dollars spent**.
+- Holding all other features fixed, a 1 unit increase in **Length of Membership** is associated with an **increase of 61.27 total dollars spent**.
+This is tricky, there are two ways to think about this: Develop the Website to catch up to the performance of the mobile app, or develop the app more since that is what is working better. This sort of answer really depends on the other factors going on at the company, you would probably want to explore the relationship between Length of Membership and the App or the Website before coming to a conclusion!
