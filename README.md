@@ -36,20 +36,20 @@ sns.jointplot('Time on Website', 'Yearly Amount Spent', data=customers)
 ```python
 sns.jointplot('Time on App', 'Yearly Amount Spent', data=customers)
 ```
-![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+![image](https://github.com/yash-kh/Linear-Regression-Project/blob/master/Plots/2.png?raw=true)
 ```python
 sns.jointplot('Time on App', 'Length of Membership', data=customers, kind='hex')
 ```
-![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+![image](https://github.com/yash-kh/Linear-Regression-Project/blob/master/Plots/3.png?raw=true)
 ```python
 sns.pairplot(customers)
 ```
-![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+![image](https://github.com/yash-kh/Linear-Regression-Project/blob/master/Plots/4.png?raw=true)
  **Based off this plot Length of Membership looks to be the most correlated feature with Yearly Amount Spent**
  ```python
  sns.lmplot(x='Length of Membership',y='Yearly Amount Spent',data=customers)
  ```
- ![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+ ![image](https://github.com/yash-kh/Linear-Regression-Project/blob/master/Plots/5.png?raw=true)
  # Training and Testing Data
 
 Now that we've explored the data a bit, let's go ahead and split the data into training and testing sets.
@@ -80,7 +80,7 @@ plt.scatter(y_test,predictions)
 plt.xlabel('Y Test')
 plt.ylabel('Predicted Y')
 ```
-![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+![image](https://github.com/yash-kh/Linear-Regression-Project/blob/master/Plots/6.png?raw=true)
  **With the plot we can see we made a great linear model because it can fit on a linear line pretty good**
  # Evaluating the Model
 
@@ -99,7 +99,7 @@ You should have gotten a very good model with a good fit. Let's quickly explore 
 ```python
 sns.distplot((y_test-predictions),bins=50);
 ```
-![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+![image](https://github.com/yash-kh/Linear-Regression-Project/blob/master/Plots/7.png?raw=true)
 # Conclusion
 We still want to figure out the answer to the original question, do we focus our efforst on mobile app or website development? Or maybe that doesn't even really matter, and Membership Time is what is really important.  Let's see if we can interpret the coefficients at all to get an idea.
 ```python
