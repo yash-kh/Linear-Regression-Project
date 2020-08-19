@@ -90,6 +90,7 @@ plt.xlabel('Y Test')
 plt.ylabel('Predicted Y')
 ```
 ![image](https://github.com/yash-kh/Linear-Regression-Project/blob/master/Plots/6.png?raw=true)
+
  **With the plot we can see we made a great linear model because it can fit on a linear line pretty good**
  # Evaluating the Model
 
@@ -123,4 +124,5 @@ coeffecients
 - Holding all other features fixed, a 1 unit increase in **Time on App** is associated with an **increase of 38.59 total dollars spent**.
 - Holding all other features fixed, a 1 unit increase in **Time on Website** is associated with an **increase of 0.19 total dollars spent**.
 - Holding all other features fixed, a 1 unit increase in **Length of Membership** is associated with an **increase of 61.27 total dollars spent**.
+
 This is tricky, there are two ways to think about this: Develop the Website to catch up to the performance of the mobile app, or develop the app more since that is what is working better. This sort of answer really depends on the other factors going on at the company, you would probably want to explore the relationship between Length of Membership and the App or the Website before coming to a conclusion!
