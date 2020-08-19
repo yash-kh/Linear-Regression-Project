@@ -32,9 +32,4 @@ customers.info()
 ```python
 sns.jointplot('Time on Website', 'Yearly Amount Spent', data=customers)
 ```
-![alt text](https://github.com/yash-kh/Linear-Regression-Project/Plots/TOM-YAS.jpg?raw=true)
-
-
-
-
-![alt text](https://github.com/yash-kh/Linear-Regression-Project/blob/image.jpg?raw=true)
+![image](https://raw.githubusercontent.com/yash-kh/Linear-Regression-Project/master/Plots/TOM-YAS.png)
