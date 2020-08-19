@@ -72,7 +72,7 @@ lm.fit(X_train,y_train)
 ```python
 print('Coefficients: \n', lm.coef_)
 ```
-![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+![image](https://www.ex-t.com/wp-content/uploads/2019/04/blank-160.png)
 # Predicting Test Data
 Now that we have fit our model, let's evaluate its performance by predicting off the test values!
 ```python
@@ -93,7 +93,7 @@ print('MAE:', metrics.mean_absolute_error(y_test, predictions))
 print('MSE:', metrics.mean_squared_error(y_test, predictions))
 print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
 ```
-![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+![image](https://www.ex-t.com/wp-content/uploads/2019/04/blank-160.png)
 # Residuals
 
 You should have gotten a very good model with a good fit. Let's quickly explore the residuals to make sure everything was okay with our data. 
@@ -108,7 +108,7 @@ coeffecients = pd.DataFrame(lm.coef_,X.columns)
 coeffecients.columns = ['Coeffecient']
 coeffecients
 ```
-![image](https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png)
+![image](https://www.ex-t.com/wp-content/uploads/2019/04/blank-160.png)
 # Interpreting the coefficients:
 
 - Holding all other features fixed, a 1 unit increase in **Avg. Session Length** is associated with an **increase of 25.98 total dollars spent**.
