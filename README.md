@@ -45,6 +45,7 @@ sns.jointplot('Time on App', 'Length of Membership', data=customers, kind='hex')
 sns.pairplot(customers)
 ```
 ![image](https://github.com/yash-kh/Linear-Regression-Project/blob/master/Plots/4.png?raw=true)
+
  **Based off this plot Length of Membership looks to be the most correlated feature with Yearly Amount Spent**
  ```python
  sns.lmplot(x='Length of Membership',y='Yearly Amount Spent',data=customers)
